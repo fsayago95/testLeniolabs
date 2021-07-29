@@ -11,5 +11,9 @@ describe('My Login application', () => {
         await Inventory.clickOnShoppingCart()
         await Inventory.clickOnCheckout()
         await Checkout.completeDataInCheckout('Franco', 'Sayago', '1405')
+        await expectAsync(Checkout.messageOfPurchase).toHaveTextContaining(
+            'You logged into a secure area!');
+           await browser.pause(6000)
     });
 });
+
